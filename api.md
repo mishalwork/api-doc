@@ -155,3 +155,113 @@ curl --request GET \
   --url http://<baseUrl>/apis/request/workflow/status/<id> \
   --header 'api-key: <api-key>' 
 ```
+**Python**
+```python
+import requests
+
+url = "http://<baseUrl>/apis/request/workflow/status/<id>"
+headers = {
+    "api-key": "<api-key>"
+}
+
+response = requests.get(url, headers=headers)
+print(response.json())
+```
+
+**Javascript**
+```javascript
+const url = 'http://<baseUrl>/apis/request/workflow/status/<id>';
+const headers = {
+    'api-key': '<api-key>'
+};
+
+fetch(url, {
+    method: 'GET',
+    headers: headers
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+```
+
+**PHP**
+```php
+<?php
+$url = "http://<baseUrl>/apis/request/workflow/status/<id>";
+$headers = array(
+    "api-key: <api-key>"
+);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HTTPGET, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response = curl_exec($ch);
+curl_close($ch);
+
+echo $response;
+?>
+```
+**GO**
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "net/http"
+)
+
+func main() {
+    url := "http://<baseUrl>/apis/request/workflow/status/<id>"
+    
+    req, _ := http.NewRequest("GET", url, nil)
+    req.Header.Set("api-key", "<api-key>")
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    if err != nil {
+        panic(err)
+    }
+    defer resp.Body.Close()
+
+    var result map[string]interface{}
+    json.NewDecoder(resp.Body).Decode(&result)
+    fmt.Println(result)
+}
+```
+**Java**
+```java
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class WorkflowStatus {
+    public static void main(String[] args) {
+        try {
+            URL url = new URL("http://<baseUrl>/apis/request/workflow/status/<id>");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("api-key", "<api-key>");
+
+            BufferedReader in = new BufferedReader(
+                new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            System.out.println(response.toString());
+            conn.disconnect();
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
