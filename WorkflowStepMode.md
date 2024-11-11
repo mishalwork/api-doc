@@ -4,7 +4,7 @@
 ```bash
 
 curl --request POST \
-  --url http://<baseUrl>/request/workflow/step/create \
+  --url http://<baseUrl>/apis/request/workflow/step/create \
   --header 'Content-Type: application/json' \
   --header 'api-key: '<api-key>' \
   --data '{ "browserMode": "<mode>" }'
@@ -14,7 +14,7 @@ curl --request POST \
 ```python
 import requests
 
-url = "http://<baseUrl>/request/workflow/step/create"
+url = "http://<baseUrl>/apis/request/workflow/step/create"
 headers = {
     "Content-Type": "application/json",
     "api-key": "<api-key>"
@@ -29,7 +29,7 @@ print(response.json())
 
 **Javascript**
 ```javascript
-const url = 'http://<baseUrl>/request/workflow/step/create';
+const url = 'http://<baseUrl>/apis/request/workflow/step/create';
 const headers = {
     'Content-Type': 'application/json',
     'api-key': '<api-key>'
@@ -50,7 +50,7 @@ fetch(url, {
 **PHP**
 ```php
 <?php
-$url = "http://<baseUrl>/request/workflow/step/create";
+$url = "http://<baseUrl>/apis/request/workflow/step/create";
 $headers = array(
     "Content-Type: application/json",
     "api-key: <api-key>"
@@ -87,7 +87,7 @@ import (
 
 func main() {
 
-	url := "http://<baseUrl>/request/workflow/step/create"
+	url := "http://<baseUrl>/apis/request/workflow/step/create"
 
 	payload := strings.NewReader("{ \"browserMode\": \"<mode>\" }")
 
@@ -118,7 +118,7 @@ import java.nio.charset.StandardCharsets;
 public class WorkflowStepCreate {
     public static void main(String[] args) {
         try {
-            URL url = new URL("http://<baseUrl>/request/workflow/step/create");
+            URL url = new URL("http://<baseUrl>/apis/request/workflow/step/create");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json");
